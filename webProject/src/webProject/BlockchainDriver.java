@@ -156,10 +156,7 @@ public static void BlockChain(String string) throws Exception , NoSuchAlgorithmE
 			}
 			else
 			{
-				//String a= "°ÅÁþºí·Ï";
 				System.out.println("°ÅÁþºí·Ï");
-				Exception e2 = new Exception();
-				throw e2; 
 			}
 
             rs.close();
