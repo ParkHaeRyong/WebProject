@@ -76,11 +76,22 @@ public class LoginValue extends HttpServlet {
 			response.sendRedirect("main.jsp?id="+id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//System.out.println("!!");
-			RequestDispatcher view = request.getRequestDispatcher("error.jsp");
-			view.forward(request, response);
-			//response.sendRedirect("/index.jsp");
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			if(e.getMessage() == null)
+			{
+				RequestDispatcher view = request.getRequestDispatcher("error1.jsp");
+				view.forward(request, response);
+				//response.sendRedirect("/index.jsp");
+				e.printStackTrace();
+			}else
+			{
+				//System.out.println(e.getMessage());
+				RequestDispatcher view = request.getRequestDispatcher("error.jsp");
+				view.forward(request, response);
+				//response.sendRedirect("/index.jsp");
+				e.printStackTrace();
+			}
+			
 		}
 	    
 	    
