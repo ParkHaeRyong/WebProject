@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" 
+		content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Insert title here</title>
+<style type="text/css">
+#wrap {
+	width: 90%;
+	max-width: 960px;
+	min-width: 320px;
+	margin: 10px auto;
+	background-color: #eee;
+}
+
+#header {
+	height: 50px;
+	background-color: #666;
+	margin-bottom: 10px;
+}
+
+#nav {
+	float: left;
+	width: 25%;
+	min-height: 150px;
+	background-color: #999;
+	margin-bottom: 10px;
+}
+
+#content {
+	float: left;
+	margin-left: 5%;
+	width: 65%;
+	min-height: 150px;
+	background-color: #999;
+	margin-bottom: 10px;
+}
+
+#footer {
+	clear: both;
+	height: 50px;
+	background-color: #666;
+	margin-bottom: 10px;
+}
+@media screen and (max-width:720px){
+	#nav, #content{
+		float : none;
+		width : 100%;
+		margin : 0;
+	}
+}
+@media all and (min-width:721px) and (max-width:960px){
+	#wrap{
+		width :100%;			
+		margin : 0;	
+	}
+}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">머릿말</div>
+		<div id="nav">
+			<h1>Navigation</h1>
+			<ul>
+				<li><a href="noticeBoard.html">게시판</a></li>
+				<li><a href="calendar.jsp">일정</a></li>
+				<li>3번메뉴</li>
+				<li>4번메뉴</li>
+			</ul>
+		</div>
+		<div id="content">
+			<h1>게시판</h1>
+			<p>냉무.</p>
+		</div>
+		<div id="footer">꼬리말</div>
+	</div>
+</body>
+</html>
