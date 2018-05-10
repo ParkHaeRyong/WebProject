@@ -45,6 +45,7 @@
 	function writeCheck()
 	{
 		 var form = document.writeform;
+		 
 		 if( !form.title.value ){
 			 alert( "제목을 적어주세요" );
 			 form.title.focus();
@@ -56,7 +57,7 @@
 			 form.memo.focus();
 			 return;
 		 }
-		 if(!form.uploadFile.vlaue){
+		 if(!form.uploadFile.value){
 			 form.submit();
 		 }
 		 form.submit();

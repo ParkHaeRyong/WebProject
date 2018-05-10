@@ -51,13 +51,15 @@
 		pstmt.execute();
 		pstmt.close();
 		
-		if(multi.getFilesystemName("uploadFile") != null){
-			 newFileName = simDf.format(new Date(currentTime)) +"."+ uploadFile.substring(uploadFile.lastIndexOf(".")+1);
+		uploadFile = multi.getFilesystemName("uploadFile");
+		
+		newFileName = simDf.format(new Date(currentTime)) +"."+ uploadFile.substring(uploadFile.lastIndexOf(".")+1);
 		        // 업로드된 파일 객체 생성
 		        File oldFile = new File(savePath + uploadFile);
 		        // 실제 저장될 파일 객체 생성
 		        File newFile = new File(savePath + newFileName);
 		        // 파일명 rename
+		        
 		        if(!oldFile.renameTo(newFile)){
 		            // rename이 되지 않을경우 강제로 파일을 복사하고 기존파일은 삭제
 		            buf = new byte[1024];
@@ -82,7 +84,6 @@
 			pstmt1.execute();
 			pstmt1.close();
 			conn.close();
-		}
     }catch(Exception e){
         e.printStackTrace();
     }

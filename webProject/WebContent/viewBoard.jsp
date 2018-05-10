@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
+<% String id = (String)session.getAttribute("id"); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +18,6 @@
 <body>
 <%
 		int seq = 1;
-		String id = (String)session.getAttribute("id");
 		seq = Integer.parseInt(request.getParameter("seq")); // pg를 저장함 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -70,15 +71,15 @@
 	    		%>
 	    	</tr>
 	  </table>
-	    <input type=button class="btn btn-primary pull-right" value="삭제" onclick=  "javascript:deleteCheck();">
-	    <%
-	    	if(board_Writer == id){
+   		<%
+	    	if(board_Writer.equals(id)){
 	    %>
+	    <input type=button class="btn btn-primary pull-right" value="삭제" onclick=  "javascript:deleteCheck();">
 	  	<input type=button class="btn btn-primary pull-right" value="수정" onclick = "location.href='modifyBoard.jsp?seq=<%=seq%>'">
 	  	<%
 	    	}
 	  	%>
-	  	<input type=button class="btn btn-primary pull-right" value="목록" onclick = "location.href='noticeBoard.jsp'">
+	  	<input type=button class="btn btn-primary pull-right" value="목록" onclick = "location.href='noticeBoard.jsp?id=<%=id%>'">
 	</div>
 </form>
 <%		}
@@ -117,7 +118,7 @@
 	}
 	function deleteCheck(){
 		if(confirm("정말 삭제하시겠습니까?")==true){
-			location.href="boardDel.jsp?seq=<%=seq%>";
+			location.href="boardDel.jsp?seq=<%=seq%>&id=<%=id%>";
 		}else{
 			return ;
 		}

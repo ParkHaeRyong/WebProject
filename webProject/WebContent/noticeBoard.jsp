@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
+<% String id = (String)session.getAttribute("id"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +10,9 @@
 <meta name = "viewport" content = "width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel = "stylesheet" href="css/bootstrap.css">
+<link href="css2/bootstrap.min.css" rel="stylesheet">
+<link href="css2/jquery.bxslider.css" rel="stylesheet">
+<link href="css2/style.css" rel="stylesheet">
 <script src = "js/bootstrap.js"></script>
 <title>게시판</title>
 </head>
@@ -28,6 +32,18 @@
 }   
 
 </style>
+<header>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="noticeBoard.jsp">게시판</a></li>
+						<li><a href="calendar.jsp">일정</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 <body>
 <h1 class= "text-center">게시판</h1>
 	<%
@@ -98,10 +114,11 @@
 							+"ORDER BY board_time DESC "
 							+"LIMIT "+Limit+" OFFSET "+Offset);  */
 	String S = " SELECT (@rownum:=@rownum+1) as rowNumber, board_seq, board_title, board_writer, DATE_FORMAT(board_time,'%Y-%m-%d %H:%i') as board_time "
-			  +"FROM board , (SELECT @rownum:=0) TMP "
+			  +"FROM board , (SELECT @rownum:="+Offset+") TMP "
 			  +"WHERE board_delCode = 0 "
-			  +"ORDER BY board_time DESC "
+			  +"ORDER BY rowNumber DESC, board_time DESC "
 			  +"LIMIT "+Limit+" OFFSET "+Offset;
+	
 							
 	rs = pstmt.executeQuery(S);
 	
@@ -118,7 +135,7 @@
 		<tr align="center">
 			<td><%=rowNumber%></td>
 			<td style="text-overflow : ellipsis;overflow : hidden;"><nobr>
-			<a href="viewBoard.jsp?seq=<%=board_seq%>"><%=board_Title%></a></nobr></td>
+			<a href="viewBoard.jsp?seq=<%=board_seq%>&id=<%=id%>"><%=board_Title%></a></nobr></td>
 			<td><%=board_Writer%></td>
 			<td><%=board_time%></td>
 		</tr>

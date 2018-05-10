@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
+<% String id = (String)session.getAttribute("id"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,12 +41,12 @@
 		      	<td><input type="text" class="form-control" name="title" maxlength="40"  value=<%=board_Title %>></td>
 		      </tr>
 		      <tr>
-		      	<td><textarea type="text" class="form-control" name="content" maxlength="1024" style="height: 400px;" ><%=board_Content %></textarea></td>
+		      	<td><textarea type="text" class="form-control" name="content"  style="height: 400px;" ><%=board_Content %></textarea></td>
 		      </tr>
 		    </tbody>
 		  </table>
 		  	<input type=button class="btn btn-primary pull-right" value="취소" onclick = "javascript:history.back(-1);">
-		  	<input type=button class="btn btn-primary pull-right" value="수정" onclick = "javascript:modifyCheck();">
+		  	<input type=button class="btn btn-primary pull-right" value="저장" onclick = "javascript:modifyCheck();">
 		</div>
 	</form>
 <%}

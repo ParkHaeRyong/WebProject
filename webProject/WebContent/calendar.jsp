@@ -2,6 +2,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
+<% String id = request.getParameter("id"); %>
+<% session.setAttribute("id", id); %>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <meta name = "viewport" content = "width=device-width, initial-scale=1">

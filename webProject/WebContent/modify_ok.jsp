@@ -1,6 +1,7 @@
 <%@ page import="java.sql.*"%> 
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+   <% String id = (String)session.getAttribute("id"); %>
 <% 	request.setCharacterEncoding("UTF-8"); //받아오는 값들을 한글로 인코딩합니다.
 	
 	String board_Title = request.getParameter("title");
