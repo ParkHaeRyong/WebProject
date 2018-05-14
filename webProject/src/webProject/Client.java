@@ -16,7 +16,7 @@ public class Client {
 	public static void main(String[] args) {
 		
 		//Client cm = new Client();
-        //cm.ClientRun("192.168.1.158",10002,"");
+        //cm.ClientRun("192.168.100.64",10002,"");
     }
  
 	/*생성한 블록을 서버노드로 전송*/

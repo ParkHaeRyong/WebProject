@@ -38,7 +38,7 @@ public class EditSchedule extends HttpServlet{
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test" , "test", "123456");
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.100.64:3306/test" , "test", "123456");
             st = connection.createStatement();
             
             String sql;
