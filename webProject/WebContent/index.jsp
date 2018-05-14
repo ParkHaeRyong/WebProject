@@ -313,7 +313,19 @@ input[type=password]:placeholder {
 	
 	  </div>
 	</div>
+	<%
+	/*서버 생성*/
+	try {
+        System.out.println("접속을 기다립니다.");
+        ServerSocket serverSocket = new ServerSocket(10002);
+        AcceptThread acceptThread = new AcceptThread(serverSocket);
+        // 여기서 새로운 쓰레드가 생성
+        new Thread(acceptThread).start();
+    } catch (Exception e) {
+    }
 	
+	
+	%>
 <!-- 
 	<div class="login">
 	<h1>로그인</h1>
