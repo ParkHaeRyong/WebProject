@@ -99,7 +99,7 @@ public static void BlockChain(String string) throws Exception , NoSuchAlgorithmE
         try {
         	//네트워크에 등록된 사용자 불어오기
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test" , "test", "123456");
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test" , "test", "123456");
             st = connection.createStatement();
             st_user = connection.createStatement();
  

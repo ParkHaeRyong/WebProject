@@ -25,7 +25,7 @@
 		
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test" , "test", "123456"); 
+		conn = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test" , "test", "123456"); 
 		String sql ="SELECT a.Board_Title, a.Board_Content, a.Board_Writer, b.originalFilename, b.fileName FROM Board a LEFT JOIN file b ON a.board_seq = b.board_seq WHERE a.Board_seq = '"+seq+"'";
 		
 		pstmt = conn.prepareStatement(sql); 

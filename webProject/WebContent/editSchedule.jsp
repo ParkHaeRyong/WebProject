@@ -19,7 +19,7 @@ String month = request.getParameter("month");
 String day = request.getParameter("day");
 
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test","test","123456");
+Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test","test","123456");
 Statement stat = conn.createStatement();
 ResultSet rs = stat.executeQuery("select * from schedule where c_key ='"+c_key+"';");
 

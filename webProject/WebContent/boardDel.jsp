@@ -7,7 +7,7 @@
 	
 	try {	
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test" , "test", "123456"); 
+		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test" , "test", "123456"); 
 		
 		String sql = "UPDATE board SET board_delCode = 1 WHERE board_seq = '"+seq+"' AND board_delCode = 0 ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);

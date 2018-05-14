@@ -24,7 +24,7 @@
 		
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test" , "test", "123456"); 
+		Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test" , "test", "123456"); 
 		Statement stat = conn.createStatement();  
 		rs = stat.executeQuery("SELECT Board_Title, Board_Content FROM Board WHERE Board_seq = '"+seq+"'");
 		

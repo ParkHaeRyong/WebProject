@@ -39,7 +39,7 @@
         // 실제 저장할 파일명(ex : 20140819151221.zip)
        
         Class.forName("com.mysql.jdbc.Driver");
-    	Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test" , "test", "123456");  
+    	Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test" , "test", "123456");  
 		
 		String sql = "INSERT INTO board(board_Writer,board_Title,board_Content,board_Time,board_delcode) VALUES(?,?,?,now(),0)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);

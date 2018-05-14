@@ -2,6 +2,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
+<% String id = request.getParameter("id"); %>
+<% session.setAttribute("id", id); %>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <meta name = "viewport" content = "width=device-width, initial-scale=1">
@@ -29,8 +31,8 @@ function fn_ajaxCalendar(c_key, year, month, day){
 	$.ajax({
 		url : 'editSchedule.jsp',
 		data : {c_key:c_key, year:year, month:month, day:day },
-		type : 'POST',
 		dataType : 'html',
+		type : 'GET',
 		success : function(data){
 			$('#detScheduleDiv').html(data);
 		}
@@ -38,6 +40,10 @@ function fn_ajaxCalendar(c_key, year, month, day){
 	
 	$('#detScheduleDiv').show();
 }
+
+$('#editSchedule').live('click',function(){
+	alert();
+});
 </script>
 <%
 // Global Vars
@@ -223,7 +229,7 @@ Calendar cal = Calendar.getInstance();
 				if (isDate ( currMonth + 1, dispDay, currYear) ) // use the isDate method
 				{ 
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.100.65:3306/test","test","123456");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.1.158:3306/test","test","123456");
 					Statement stat = conn.createStatement();
 					ResultSet rs = stat.executeQuery("select * from schedule where year ='"+ cal.get(cal.YEAR)+"' and month ='"+getDateName (cal.get(cal.MONTH))+"' and day ='"+dispDay+"';");
 					
